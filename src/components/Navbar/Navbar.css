@@ -1,0 +1,37 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(100, 0, 255);
+    height: 7rem;
+}
+
+.logo {
+    width: 5rem;
+    height: 5rem;
+    padding: 1rem 3rem;
+}
+
+.title-menu {
+    font-size: 3rem;
+    font-weight: normal;
+    margin: 1rem;
+    color: white;
+}
+
+.list-menu {
+    list-style: none;
+    display: flex;
+    align-items: flex-end;
+}
+
+.item-menu {
+    padding: 1rem 2rem;
+    color: white;   
+}
+
+.active {
+    background-color: white;
+    color: black; 
+    border-radius: 0.5rem 0.5rem 0 0;  
+}
+
