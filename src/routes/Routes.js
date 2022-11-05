@@ -10,7 +10,7 @@ import { RecordPage } from '../pages/RecordPage';
 import { HomePage } from '../pages/HomePage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
-import { Navbar } from "../components/Navbar/Navbar";
+import { Navbar } from "../components/Navbar";
 
 export const Routes = () => {
   return (

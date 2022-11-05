@@ -1,7 +1,7 @@
 
 import { NavLink } from "react-router-dom";
 
-import './Navbar.css';
+import './styles.css';
 
 import logo from '../../assets/images/miscalenea/logo.png';
 

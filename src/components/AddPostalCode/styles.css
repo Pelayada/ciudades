@@ -1,0 +1,28 @@
+form {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 4rem 1rem 4rem;
+}
+
+.inputText {
+    width: 50rem;
+    height: 2.5rem;
+    font-size: 1rem;
+    padding-left: 1rem;
+}
+
+.inputSubmit {
+    width: 10rem;
+    margin-left: 3rem;
+    background-color: rgb(100, 0, 255);
+    color: white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.errorInput {
+    margin-left: 4rem;
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,30 @@
+.politicalCard {
+    width: 64rem;
+    margin: 2rem 4rem
+}
+
+.headerCard {
+    display: flex;
+    justify-content: end;
+    background-color: rgb(100, 0, 255);
+    border: 1px solid black;
+}
+
+.headerCard button {
+    margin: 0.5rem;
+}
+
+.infoCard {
+    display: flex;
+    border: 1px solid black;
+}
+
+.flagImage {
+    width: 10rem;
+    margin: 2rem;
+    border: 1px solid black;
+}
+
+.textCard {
+    padding: 2rem;
+}
