@@ -1,0 +1,26 @@
+
+.generalCard {
+    width: 64rem;
+    margin: 2rem 4rem
+}
+
+.headerCard {
+    display: flex;
+    justify-content: end;
+    background-color: rgb(100, 0, 255);
+    border: 1px solid black;
+    color: white;
+}
+
+.headerCard h2 {
+    margin: 0.3rem auto;
+}
+
+.headerCard button {
+    margin: 0.2rem 0.2rem 1rem 0;
+}
+
+.infoCard {
+    display: flex;
+    border: 1px solid black;
+}

@@ -1,31 +1,22 @@
-import { useState } from 'react';
-import { useFetchInfo } from '../../commons/hooks/useFetchInfo';
 
 import './styles.css';
 
-export const PoliticalInformation = ({ postalCode }) => {
-    const [content, setContent] = useState(true);
-    const { info, isLoading } = useFetchInfo( postalCode );
-
-    const name = info["place name"];
+export const PoliticalInformation = ({ info }) => {
+    
     const { state } = info;
-    const abbreviation = info['state abbreviation'] || 'O';
-    const handleInfo = () => setContent(!content);
+    const name = info["place name"];
+    const abbreviation = info['state abbreviation'];
 
     return (
-        <div className='politicalCard'>
-            <div className='headerCard'>
-                <button onClick={ handleInfo }>X</button>
+        <>
+            <img 
+                src={require(`../../assets/images/flags/${abbreviation}.gif`)} 
+                alt='bandera' 
+                className='flagImage' />
+            <div className='textCard'>
+                <p><span className='wordBold'>Ciudad: </span>{ name }</p>
+                <p><span className='wordBold'>Comunidad: </span>{ state }</p>
             </div>
-            { content && (
-                <div className='infoCard'>
-                    <img src={require(`../../assets/images/flags/${abbreviation}.gif`) || ''} alt='bandera' className='flagImage' />
-                    <div className='textCard'>
-                        <p>Ciudad: { name }</p>
-                        <p>Comunidad: { state }</p>
-                    </div>
-                </div>
-            )}
-        </div>
+        </>
     )
 }
