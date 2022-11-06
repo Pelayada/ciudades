@@ -22,7 +22,7 @@ export const HomePage = () => {
         <AddPostalCode 
             onNewCode={ (value) => onAddPostalCode(value) }
         />
-        { !isLoading && 
+        { !isLoading ? 
           <>
             <GeneralCard title={ 'Información política' }>
               <PoliticalInformation info={ info } />
@@ -30,7 +30,10 @@ export const HomePage = () => {
             <GeneralCard title={ 'Información geográfica' }>
               <GeographicInformation info={ info } />
             </GeneralCard>
-          </>
+          </> :
+          <div className='loading' >
+            <img src={require('../assets/images/miscalenea/loading.gif')} className='imageLoading' />
+          </div>
         }
     </>
   )

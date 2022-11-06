@@ -15,3 +15,12 @@ code {
 .wordBold {
   font-weight: bold;
 }
+
+.loading {
+  display: flex;
+  justify-content: center;
+}
+
+.imageLoading {
+  width: 5rem;
+}
