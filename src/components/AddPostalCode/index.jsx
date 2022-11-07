@@ -24,16 +24,14 @@ export const AddPostalCode = ({ onNewCode }) => {
             setError('El código postal debe ser númerico.');
             setInputValue('');
             return;
-        } else if (code.toString().length != 5) {
+        } else if (code.toString().length !== 5) {
             setError('Debe contener 5 cifras.');
             setInputValue('');
             return;
         }
-        console.group('code', code)
         onNewCode( code );
         setInputValue('');
-        setError('');
-           
+        setError('');    
     }
 
     return (
@@ -47,7 +45,7 @@ export const AddPostalCode = ({ onNewCode }) => {
                 />
                 <input type="submit" value="Buscar" className='inputSubmit' />
             </form>
-            <span className='errorInput'>{error}</span>
+            <span className='errorInput' id='errorInput'>{error}</span>
         </>
     )
 }

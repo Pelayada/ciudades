@@ -24,3 +24,23 @@ code {
 .imageLoading {
   width: 5rem;
 }
+
+.cardsRecords {
+  margin-top: 3rem;
+}
+
+.cardRecord {
+  display: flex;
+  width: 80rem;
+  margin: 1rem auto;
+  border: 1px solid black;
+}
+
+.cardRecord span {
+  padding: 1rem 2rem;
+  background-color: rgb(100, 0, 255);
+  color: white;
+}
+.cardRecord p {
+  margin: 1rem;
+}

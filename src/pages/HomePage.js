@@ -7,6 +7,7 @@ import { AddPostalCode } from '../components/AddPostalCode';
 import { PoliticalInformation } from '../components/PoliticalInformation';
 import { GeographicInformation } from '../components/GeographicInformation';
 import { GeneralCard } from '../components/GeneralCard';
+import { GraphicCard  } from '../components/GraphicCard';
 
 export const HomePage = () => {
 
@@ -18,7 +19,7 @@ export const HomePage = () => {
   } 
 
   return (
-    <>
+    <div className='home'>
         <AddPostalCode 
             onNewCode={ (value) => onAddPostalCode(value) }
         />
@@ -27,14 +28,17 @@ export const HomePage = () => {
             <GeneralCard title={ 'Información política' }>
               <PoliticalInformation info={ info } />
             </GeneralCard>
+            <GeneralCard title={ 'Información meteorológica' }>
+              <GraphicCard info={ info } />
+            </GeneralCard>
             <GeneralCard title={ 'Información geográfica' }>
               <GeographicInformation info={ info } />
             </GeneralCard>
           </> :
           <div className='loading' >
-            <img src={require('../assets/images/miscalenea/loading.gif')} className='imageLoading' />
+            <img src={require('../assets/images/miscalenea/loading.gif')} className='imageLoading' alt='Cargando...' />
           </div>
         }
-    </>
+    </div>
   )
 }

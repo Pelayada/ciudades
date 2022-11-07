@@ -3,7 +3,5 @@ export const getPoliticalInfo = async( code ) => {
     const resp = await fetch( url );
     const data = await resp.json();
 
-    console.log('data', data);
-
     return data;
 }

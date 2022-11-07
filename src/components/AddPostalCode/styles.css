@@ -2,6 +2,7 @@ form {
     display: flex;
     justify-content: center;
     margin: 2rem 4rem 1rem 4rem;
+    width: 90%;
 }
 
 .inputText {
@@ -22,7 +23,7 @@ form {
 }
 
 .errorInput {
-    margin-left: 4rem;
+    margin-left: 15rem;
     color: red;
     font-weight: bold;
 }
