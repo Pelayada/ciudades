@@ -25,13 +25,11 @@ export const HomePage = () => {
     setPostalCode(placeRecord)
   }, [placeRecord])
 
-  console.log('isLoading', isLoading)
-
-
   return (
     <div className='home'>
         <AddPostalCode 
             onNewCode={ (value) => onAddPostalCode(value) }
+            isLoading={ isLoading }
         />
         { info && (
           <>
@@ -46,7 +44,7 @@ export const HomePage = () => {
             </GeneralCard>
           </> 
         )}
-        { isLoading && <Loading />}
+        { isLoading && <Loading /> }
     </div>
   )
 }

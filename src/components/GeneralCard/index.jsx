@@ -7,7 +7,7 @@ export const GeneralCard = ({ title, children }) => {
 
     const [content, setContent] = useState(true);
     const handleInfo = () => setContent(!content);
-    const figureButton = content ? '▢' : '_';
+    const figureButton = !content ? '▢' : '_';
 
     return (
         <div className='generalCard'>

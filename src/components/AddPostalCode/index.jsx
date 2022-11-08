@@ -3,7 +3,9 @@ import { useState } from 'react';
 
 import './styles.css';
 
-export const AddPostalCode = ({ onNewCode }) => {
+export const AddPostalCode = ({ onNewCode, isLoading }) => {
+
+    console.log('isL', isLoading)
 
     const [ inputValue, setInputValue ] = useState('');
     const [ error, setError ] = useState('');
@@ -43,7 +45,7 @@ export const AddPostalCode = ({ onNewCode }) => {
                     onChange={ onInputChange }
                     className='inputText'
                 />
-                <input type="submit" value="Buscar" className='inputSubmit' />
+                { !isLoading && <input type="submit" value="Buscar" className='inputSubmit' /> }
             </form>
             <span className='errorInput' id='errorInput'>{error}</span>
         </>

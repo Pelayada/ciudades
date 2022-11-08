@@ -27,12 +27,12 @@ export const useFetchInfo = ( code ) => {
             setInfo(placesFirst);
             getPlaces(newInfo);
         }
+        setIsLoading(false);
     }
 
     useEffect( () => {
         setIsLoading(true);
         getInfo();
-        setIsLoading(false);
     }, [code]);
 
     return {
