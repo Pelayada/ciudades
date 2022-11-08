@@ -7,12 +7,13 @@ export const GeneralCard = ({ title, children }) => {
 
     const [content, setContent] = useState(true);
     const handleInfo = () => setContent(!content);
+    const figureButton = content ? '▢' : '_';
 
     return (
         <div className='generalCard'>
             <div className='headerCard'>
                 <h2>{ title }</h2>
-                <button onClick={ handleInfo }>X</button>
+                <button onClick={ handleInfo }>{ figureButton }</button>
             </div>
             { content && (
                 <div className='infoCard'>

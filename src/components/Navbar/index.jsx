@@ -7,7 +7,7 @@ import './styles.css';
 export const Navbar = () => {
   return (
     <nav>
-        <Link exact to="/">
+        <Link to="/">
             <img src={logo} alt="logo-menu" className="logo" />
         </Link>
         <h1 className="title-menu">Ciudades</h1>

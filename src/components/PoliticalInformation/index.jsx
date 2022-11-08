@@ -4,7 +4,7 @@ import './styles.css';
 export const PoliticalInformation = ({ info }) => {
     
     const { state } = info;
-    const name = info["place name"];
+    const name = info['place name'];
     const abbreviation = info['state abbreviation'];
 
     return (

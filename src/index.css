@@ -16,15 +16,6 @@ code {
   font-weight: bold;
 }
 
-.loading {
-  display: flex;
-  justify-content: center;
-}
-
-.imageLoading {
-  width: 5rem;
-}
-
 .cardsRecords {
   margin-top: 3rem;
 }
@@ -34,6 +25,7 @@ code {
   width: 80rem;
   margin: 1rem auto;
   border: 1px solid black;
+  z-index: 9999;
 }
 
 .cardRecord span {
@@ -43,4 +35,5 @@ code {
 }
 .cardRecord p {
   margin: 1rem;
+  width: 100%;
 }

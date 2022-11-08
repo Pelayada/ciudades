@@ -5,35 +5,34 @@ import { getPoliticalInfo } from '../utils/getPoliticalInfo';
 
 export const useFetchInfo = ( code ) => {
 
-    const { setPlacesArray } = useContext( PlacesContext );
+    const { placesArray, setPlacesArray } = useContext( PlacesContext );
 
     const [info, setInfo] = useState('');
-    const [isLoading, setIsLoading] = useState( true );
-    const [recordPlaces, setRecordPlaces] = useState([]);
+    const [isLoading, setIsLoading] = useState( false );
 
     const getPlaces = (newInfo) => {
-        if ( recordPlaces.includes(code) ) return;
-        setRecordPlaces([newInfo, ...recordPlaces]);
-        setPlacesArray(recordPlaces);
-        
-        console.log('recordPlaces', recordPlaces)
+        const findPlace = placesArray.find((place) => place['post code'] === newInfo['post code'])
+        if (findPlace) return;
+        setPlacesArray([newInfo, ...placesArray]);
     }
 
     const getInfo = async() => {
-        setIsLoading(true);
         const newInfo = await getPoliticalInfo( code );
-        const { places } = newInfo;
-        if (!places) {
-            return document.getElementById('errorInput').innerHTML = 'No existe el código postal.'
+        if (newInfo) {
+            const { places } = newInfo;
+            if (!places) {
+                return document.getElementById('errorInput').innerHTML = 'No existe el código postal.'
+            }
+            const [ placesFirst ] = places;
+            setInfo(placesFirst);
+            getPlaces(newInfo);
         }
-        const [ placesFirst ] = places;
-        setInfo(placesFirst);
-        getPlaces(newInfo);
-        setIsLoading(false);
     }
 
     useEffect( () => {
+        setIsLoading(true);
         getInfo();
+        setIsLoading(false);
     }, [code]);
 
     return {
