@@ -18,15 +18,18 @@ export const useFetchInfo = ( code ) => {
 
     const getInfo = async() => {
         const newInfo = await getPoliticalInfo( code );
+        const errorInput = document.getElementById('errorInput');
         if (newInfo) {
             const { places } = newInfo;
             if (!places) {
-                return document.getElementById('errorInput').innerHTML = 'No existe el código postal.'
+                setIsLoading(false);
+                return errorInput.innerHTML = 'No existe el código postal.'
             }
             const [ placesFirst ] = places;
             setInfo(placesFirst);
             getPlaces(newInfo);
         }
+        errorInput.innerHTML = '';
         setIsLoading(false);
     }
 

@@ -1,3 +1,4 @@
+
 export const updatePlace = (e, setPlaceRecord) => {
     const infoEvent = e.target.innerText;
     const tagEvent = e.target.localName;

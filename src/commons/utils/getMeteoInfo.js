@@ -1,3 +1,4 @@
+
 export const getMeteoInfo = async( info ) => {
     const { longitude, latitude } = info;
     const temp = 'temperature_2m';

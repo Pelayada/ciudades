@@ -1,3 +1,4 @@
+
 import { useContext } from 'react';
 
 import { PlacesContext } from '../commons/context/PlacesContext';
@@ -12,7 +13,11 @@ export const RecordPage = () => {
         const firstPlace = place.places[0];
         const postCode = place['post code'];
         return(
-          <CardRecord firstPlace={ firstPlace } postCode={ postCode } setPlaceRecord={ setPlaceRecord }/>
+          <CardRecord 
+            key={ postCode } 
+            firstPlace={ firstPlace } 
+            postCode={ postCode } 
+            setPlaceRecord={ setPlaceRecord } />
         )
       })}
     </div>

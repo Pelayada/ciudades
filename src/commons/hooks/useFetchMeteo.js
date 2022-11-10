@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import { getMeteoInfo } from '../utils/getMeteoInfo';
 
@@ -20,6 +21,21 @@ export const useFetchMeteo = ( info ) => {
                 i++;
             }
         }
+
+        // let newArray = [];
+
+        // const newTime = dataTime.map((time, i) => {
+        //     i++
+        //     return dataMeteo.map((meteo, j) => {
+        //         if(i === j) {
+        //             j++
+        //             return `${time} (ºC ${parseInt(meteo)} )`;
+        //         }
+        //         return
+        //     })
+        // })
+
+        // console.log('newTime', newTime)
 
         setChartMeteo(dataMeteo);
         setChartTime(time)

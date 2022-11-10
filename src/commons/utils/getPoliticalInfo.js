@@ -1,3 +1,4 @@
+
 export const getPoliticalInfo = async( code ) => {
     if (code) {
         const url = `https://api.zippopotam.us/es/${ code }`;

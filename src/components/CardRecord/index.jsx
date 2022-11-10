@@ -6,7 +6,7 @@ import './styles.css';
 
 export const CardRecord = ({ firstPlace, postCode, setPlaceRecord}) => {
   return (
-    <Link to='/' key={ postCode } onClick={ (e) => updatePlace(e, setPlaceRecord) }>
+    <Link to='/' onClick={ (e) => updatePlace(e, setPlaceRecord) }>
         <div className='cardRecord'>
             <span>{ postCode }</span>
             <p>{`${firstPlace['place name']} (${firstPlace.state})`}</p>

@@ -17,9 +17,9 @@ export const Routes = () => {
     <Router>
         <Navbar />
         <Switch>
-            <Route exact path="/record" component={RecordPage} />
-            <Route exact path="/" component={HomePage} />
-            <Route path="/404" component={NotFoundPage} />
+            <Route exact path="/record" component={ RecordPage } />
+            <Route exact path="/" component={ HomePage } />
+            <Route path="/404" component={ NotFoundPage } />
             <Route path="*">
                 <Redirect to="/404" />
             </Route>

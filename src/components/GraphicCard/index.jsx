@@ -8,7 +8,7 @@ import {
 } from 'chart.js'; 
 
 import { useFetchMeteo } from '../../commons/hooks/useFetchMeteo';
-import { options } from '../../commons/utils/chartOptions';
+import { options } from '../../config/chartOptions';
 import './styles.css';
 
 export const GraphicCard = ({ info }) => {
