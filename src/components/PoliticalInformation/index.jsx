@@ -1,4 +1,5 @@
 
+import { TextCard } from '../TextCard';
 import './styles.css';
 
 export const PoliticalInformation = ({ info }) => {
@@ -13,10 +14,7 @@ export const PoliticalInformation = ({ info }) => {
                 src={require(`../../assets/images/flags/${abbreviation}.gif`)} 
                 alt='bandera' 
                 className='flagImage' />
-            <div className='textCard'>
-                <p><span className='wordBold'>Ciudad: </span>{ name }</p>
-                <p><span className='wordBold'>Comunidad: </span>{ state }</p>
-            </div>
+            <TextCard firstLine={['Ciudad: ', name]} secondLine={['Comunidad: ', state]} />
         </>
     )
 }

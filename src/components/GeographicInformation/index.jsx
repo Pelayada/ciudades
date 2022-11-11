@@ -1,4 +1,6 @@
 
+import { TextCard } from '../TextCard';
+
 import './styles.css';
 
 export const GeographicInformation = ({ info }) => {
@@ -9,10 +11,7 @@ export const GeographicInformation = ({ info }) => {
 
     return (
         <div className='infoGeo'>
-            <div className='textCard'>
-                <p><span className='wordBold'>Latitud: </span>{ latitude }</p>
-                <p><span className='wordBold'>Longitud: </span>{ longitude }</p>
-            </div>
+            <TextCard firstLine={['Latitud: ', latitude]} secondLine={['Longitud: ', longitude]} />
             <a target="_blank" rel="noreferrer" href={ url }>
                 <img 
                     src={require(`../../assets/images/miscalenea/mapa.png`)} 

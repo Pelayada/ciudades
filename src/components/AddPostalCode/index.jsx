@@ -9,7 +9,7 @@ export const AddPostalCode = ({ onNewCode, isLoading }) => {
         onSubmit,
         error,
         inputValue
-    } = useInput(onNewCode)
+    } = useInput( onNewCode )
 
     return (
         <>

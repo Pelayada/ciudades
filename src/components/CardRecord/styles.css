@@ -1,6 +1,6 @@
 
 .cardsRecords {
-    margin-top: 3rem;
+    margin: 3rem;
 }
 
 .cardsRecords a {
@@ -9,7 +9,6 @@
 
 .cardRecord {
     display: flex;
-    width: 80rem;
     margin: 1rem auto;
     border: 1px solid black;
     z-index: 9999;

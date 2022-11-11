@@ -5,6 +5,7 @@ import { updatePlace } from '../../commons/utils/updatePlace';
 import './styles.css';
 
 export const CardRecord = ({ firstPlace, postCode, setPlaceRecord}) => {
+
   return (
     <Link to='/' onClick={ (e) => updatePlace(e, setPlaceRecord) }>
         <div className='cardRecord'>

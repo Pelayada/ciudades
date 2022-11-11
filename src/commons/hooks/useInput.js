@@ -12,8 +12,12 @@ export const useInput = ( onNewCode ) => {
     const onSubmit = ( event ) => {
         event.preventDefault();
         const code = parseInt(inputValue) || inputValue;
-    
-        if (code.length < 1) {
+        
+        console.log('code', code)
+        console.log('inputValue', inputValue)
+        console.log('code.toString()', code.toString())
+
+        if (inputValue.length < 1) {
             setError('Se debe introducir un código postal.');
             setInputValue('');
             return;
@@ -21,7 +25,7 @@ export const useInput = ( onNewCode ) => {
             setError('El código postal debe ser númerico.');
             setInputValue('');
             return;
-        } else if (code.toString().length !== 5) {
+        } else if (inputValue.toString().length !== 5) {
             setError('Debe contener 5 cifras.');
             setInputValue('');
             return;
