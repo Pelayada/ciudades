@@ -1,8 +1,5 @@
 
-import { useState, useContext, useEffect } from 'react';
-
 import { useFetchInfo } from '../commons/hooks/useFetchInfo';
-import { PlacesContext } from '../commons/context/PlacesContext';
 
 import { AddPostalCode } from '../components/AddPostalCode';
 import { PoliticalInformation } from '../components/PoliticalInformation';
@@ -13,24 +10,11 @@ import { Loading } from '../components/Loading';
 
 export const HomePage = () => {
 
-  const [ postalCode, setPostalCode ] = useState('');
-  const { info, isLoading } = useFetchInfo( postalCode );
-  const { placeRecord } = useContext( PlacesContext );
-
-  const onAddPostalCode = ( newCode ) => {
-    setPostalCode(newCode);
-  } 
-
-  useEffect(() => {
-    setPostalCode(placeRecord)
-  }, [placeRecord])
+  const { info, isLoading } = useFetchInfo();
 
   return (
     <div className='home'>
-        <AddPostalCode 
-            onNewCode={ (value) => onAddPostalCode(value) }
-            isLoading={ isLoading }
-        />
+        <AddPostalCode isLoading={ isLoading } />
         { info && (
           <>
             <GeneralCard title={ 'Información política' }>

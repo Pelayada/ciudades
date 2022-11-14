@@ -1,11 +1,9 @@
 
-import { useContext } from 'react';
-
-import { PlacesContext } from '../commons/context/PlacesContext';
+import { useCityContext } from '../commons/context/PlacesProvider';
 import { CardRecord } from '../components/CardRecord';
 
 export const RecordPage = () => {
-  const { placesArray, setPlaceRecord } = useContext( PlacesContext );  
+  const { placesArray } = useCityContext();  
 
   return (
     <div className='cardsRecords'>
@@ -16,8 +14,7 @@ export const RecordPage = () => {
           <CardRecord 
             key={ postCode } 
             firstPlace={ firstPlace } 
-            postCode={ postCode } 
-            setPlaceRecord={ setPlaceRecord } />
+            postCode={ postCode } />
         )
       })}
     </div>

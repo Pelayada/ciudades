@@ -1,7 +1,9 @@
 
 import { useState } from 'react';
+import { useCityContext } from '../context/PlacesProvider';
 
-export const useInput = ( onNewCode ) => {
+export const useInput = () => {
+    const { setPlaceRecord } = useCityContext();
     const [ inputValue, setInputValue ] = useState('');
     const [ error, setError ] = useState('');
     
@@ -12,10 +14,6 @@ export const useInput = ( onNewCode ) => {
     const onSubmit = ( event ) => {
         event.preventDefault();
         const code = parseInt(inputValue) || inputValue;
-        
-        console.log('code', code)
-        console.log('inputValue', inputValue)
-        console.log('code.toString()', code.toString())
 
         if (inputValue.length < 1) {
             setError('Se debe introducir un código postal.');
@@ -30,7 +28,7 @@ export const useInput = ( onNewCode ) => {
             setInputValue('');
             return;
         }
-        onNewCode( code );
+        setPlaceRecord( inputValue );
         setInputValue('');
         setError('');    
     }

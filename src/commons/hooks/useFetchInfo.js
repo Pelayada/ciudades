@@ -1,11 +1,11 @@
 
-import { useEffect, useState, useContext } from 'react';
-import { PlacesContext } from '../context/PlacesContext';
+import { useEffect, useState } from 'react';
+import { useCityContext } from '../context/PlacesProvider';
 import { getPoliticalInfo } from '../utils/getPoliticalInfo';
 
-export const useFetchInfo = ( code ) => {
+export const useFetchInfo = () => {
 
-    const { placesArray, setPlacesArray } = useContext( PlacesContext );
+    const { placesArray, setPlacesArray, placeRecord } = useCityContext();
 
     const [info, setInfo] = useState('');
     const [isLoading, setIsLoading] = useState( false );
@@ -17,7 +17,7 @@ export const useFetchInfo = ( code ) => {
     }
 
     const getInfo = async() => {
-        const newInfo = await getPoliticalInfo( code );
+        const newInfo = await getPoliticalInfo( placeRecord );
         const errorInput = document.getElementById('errorInput');
         if (newInfo) {
             const { places } = newInfo;
@@ -36,7 +36,7 @@ export const useFetchInfo = ( code ) => {
     useEffect( () => {
         setIsLoading(true);
         getInfo();
-    }, [code]);
+    }, [placeRecord]);
 
     return {
         info,

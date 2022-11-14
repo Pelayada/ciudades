@@ -2,14 +2,14 @@
 import { useInput } from '../../commons/hooks/useInput';
 import './styles.css';
 
-export const AddPostalCode = ({ onNewCode, isLoading }) => {
+export const AddPostalCode = ({ isLoading }) => {
 
     const {
         onInputChange,
         onSubmit,
         error,
         inputValue
-    } = useInput( onNewCode )
+    } = useInput()
 
     return (
         <>
