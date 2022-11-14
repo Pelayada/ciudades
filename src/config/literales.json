@@ -1,7 +1,72 @@
 {
-     "TITULO_APP" : {
-        "es" : "Ciudades",
-        "en" : "Cities"
-     } 
+   "titleApp" : {
+      "ES" : "Ciudades",
+      "EN" : "Cities"
+   },
+
+   "search" : {
+      "ES" : "Buscar",
+      "EN" : "Search"
+   },
+
+   "record" : {
+      "ES" : "Historial",
+      "EN" : "Record"
+   },
+
+   "searchButton" : {
+      "ES" : "Buscar",
+      "EN" : "Search"
+   },
+
+   "politicalInformation" : {
+      "ES" : "Información política",
+      "EN" : "Political information"
+   },
+   
+   "weatherInformation" : {
+      "ES" : "Información meteorológica",
+      "EN" : "Weather information"
+   },
+
+   "geographicInformation" : {
+      "ES" : "Información geográfica",
+      "EN" : "Geographic information"
+   },
+
+   "city" : {
+      "ES" : "Ciudad",
+      "EN" : "City"
+   },
+
+   "state" : {
+      "ES" : "Comunidad",
+      "EN" : "State"
+   },
+
+   "latitude" : {
+      "ES" : "Latitud",
+      "EN" : "Latitude"
+   },
+
+   "longitude" : {
+      "ES" : "Longitud",
+      "EN" : "Longitude"
+   },
+
+   "map" : {
+      "ES" : "Mapa",
+      "EN" : "Map"
+   },
+
+   "flag" : {
+      "ES" : "Bandera",
+      "EN" : "Flag"
+   },
+   
+   "loading" : {
+      "ES" : "Cargando...",
+      "EN" : "Loading..."
+   }
 }
 

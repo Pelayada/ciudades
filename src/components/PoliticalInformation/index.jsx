@@ -1,4 +1,5 @@
 
+import { useChangeText } from '../../commons/hooks/useChangeText';
 import { TextCard } from '../TextCard';
 import './styles.css';
 
@@ -8,13 +9,17 @@ export const PoliticalInformation = ({ info }) => {
     const name = info['place name'];
     const abbreviation = info['state abbreviation'];
 
+    const city = useChangeText('city');
+    const stateWord = useChangeText('state');
+    const flag = useChangeText('flag');
+
     return (
         <>
             <img 
                 src={require(`../../assets/images/flags/${abbreviation}.gif`)} 
-                alt='bandera' 
+                alt={ flag } 
                 className='flagImage' />
-            <TextCard firstLine={['Ciudad: ', name]} secondLine={['Comunidad: ', state]} />
+            <TextCard firstLine={[`${city}: `, name]} secondLine={[`${stateWord}: `, state]} />
         </>
     )
 }

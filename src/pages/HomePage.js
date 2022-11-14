@@ -1,5 +1,6 @@
 
 import { useFetchInfo } from '../commons/hooks/useFetchInfo';
+import { useChangeText } from '../commons/hooks/useChangeText';
 
 import { AddPostalCode } from '../components/AddPostalCode';
 import { PoliticalInformation } from '../components/PoliticalInformation';
@@ -11,19 +12,23 @@ import { Loading } from '../components/Loading';
 export const HomePage = () => {
 
   const { info, isLoading } = useFetchInfo();
+  const polInfo = useChangeText("politicalInformation");
+  const meteoInfo = useChangeText("weatherInformation");
+  const geoInfo = useChangeText("geographicInformation");
+
 
   return (
     <div className='home'>
         <AddPostalCode isLoading={ isLoading } />
         { info && (
           <>
-            <GeneralCard title={ 'Información política' }>
+            <GeneralCard title={ polInfo }>
               <PoliticalInformation info={ info } />
             </GeneralCard>
-            <GeneralCard title={ 'Información meteorológica' }>
+            <GeneralCard title={ meteoInfo }>
               <GraphicCard info={ info } />
             </GeneralCard>
-            <GeneralCard title={ 'Información geográfica' }>
+            <GeneralCard title={ geoInfo }>
               <GeographicInformation info={ info } />
             </GeneralCard>
           </> 

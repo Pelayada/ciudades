@@ -1,4 +1,5 @@
 
+import { useChangeText } from '../../commons/hooks/useChangeText';
 import { useInput } from '../../commons/hooks/useInput';
 import './styles.css';
 
@@ -11,6 +12,8 @@ export const AddPostalCode = ({ isLoading }) => {
         inputValue
     } = useInput()
 
+    const valueButton = useChangeText("searchButton");
+
     return (
         <>
             <form onSubmit={ onSubmit }>
@@ -20,7 +23,7 @@ export const AddPostalCode = ({ isLoading }) => {
                     onChange={ onInputChange }
                     className='inputText'
                 />
-                { !isLoading && <input type="submit" value="Buscar" className='inputSubmit' /> }
+                { !isLoading && <input type="submit" value={ valueButton } className='inputSubmit' /> }
             </form>
             <span className='errorInput' id='errorInput'>{error}</span>
         </>

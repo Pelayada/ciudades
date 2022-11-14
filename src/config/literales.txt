@@ -1,8 +1,0 @@
-Crear un contexto global de aplicación para el idioma que devuelva:
-- un  método para obtener un literal
-- un método para setear el idioma (es, en)
-
-Componente para seleccionar el idioma (LLama al método de setear idioma)
-
-Cambiar todos los literales por el texto que devuelve el método del hook para obtener un literal
-getLiteral("ID_Literal")

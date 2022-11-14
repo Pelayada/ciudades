@@ -1,0 +1,10 @@
+
+.buttonLanguage {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.buttonLanguage button {
+    background-color: white;
+    cursor: pointer;
+}

@@ -6,15 +6,18 @@ export const PlacesProvider = ({ children }) => {
 
     const [placesArray, setPlacesArray] = useState([]);
     const [placeRecord, setPlaceRecord] = useState('');
+    const [language, setLanguage] = useState('ES');
 
     const value = useMemo(() => { 
         return { 
             placesArray, 
             setPlacesArray, 
             placeRecord, 
-            setPlaceRecord  
+            setPlaceRecord,
+            language,
+            setLanguage  
         }; 
-    }, [placesArray, placeRecord]);
+    }, [placesArray, placeRecord, language]);
    
     return (
         <PlacesContext.Provider value={ value }>

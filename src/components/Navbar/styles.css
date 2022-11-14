@@ -12,20 +12,24 @@ nav {
     padding: 1rem 3rem;
 }
 
-.title-menu {
+.titleMenu {
     font-size: 3rem;
     font-weight: normal;
     margin: 1rem;
     color: white;
 }
 
-.list-menu {
+.listGeneralMenu {
+    display: flex;
+}
+
+.listMenu {
     list-style: none;
     display: flex;
     align-items: flex-end;
 }
 
-.item-menu {
+.itemMenu {
     padding: 1rem 2rem;
     color: white;   
 }
