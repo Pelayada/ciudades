@@ -1,4 +1,6 @@
 
+import PropTypes from 'prop-types';
+
 import { useChangeText } from '../../commons/hooks/useChangeText';
 import { TextCard } from '../TextCard';
 
@@ -27,3 +29,7 @@ export const GeographicInformation = ({ info }) => {
         </div>
     )
 }
+
+GeographicInformation.propTypes = {
+    info: PropTypes.object.isRequired
+};

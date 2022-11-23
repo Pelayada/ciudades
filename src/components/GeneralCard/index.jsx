@@ -1,5 +1,6 @@
 
 import { useState } from 'react'
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -23,3 +24,8 @@ export const GeneralCard = ({ title, children }) => {
         </div>
     )
 }
+
+GeneralCard.propTypes = {
+    title: PropTypes.string,
+    children: PropTypes.element.isRequired
+};

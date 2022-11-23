@@ -1,4 +1,6 @@
 
+import PropTypes from 'prop-types';
+
 import './styles.css';
 
 export const TextCard = ({ firstLine, secondLine }) => {
@@ -13,3 +15,8 @@ export const TextCard = ({ firstLine, secondLine }) => {
         </div>
     )
 }
+
+TextCard.propTypes = {
+    firstLine: PropTypes.array.isRequired,
+    secondLine: PropTypes.array.isRequired,
+};

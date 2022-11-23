@@ -10,11 +10,15 @@ export const useFetchMeteo = ( info ) => {
     
     const fetchMeteo = async () => {
         const newInfo = await getMeteoInfo( info );
-
-        const { dataMeteo, time } = labelsChart( newInfo );
-
-        setChartMeteo(dataMeteo);
-        setChartTime(time)
+        const errorInput = document.getElementById('errorInput');
+        if (newInfo) {
+            if (typeof newInfo !== 'object') {
+                return errorInput.innerHTML = newInfo;
+            }
+            const { dataMeteo, time } = labelsChart( newInfo );
+            setChartMeteo(dataMeteo);
+            setChartTime(time)
+        }
     };
 
     useEffect(() => {

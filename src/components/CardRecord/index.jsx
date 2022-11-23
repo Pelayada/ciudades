@@ -1,4 +1,5 @@
 
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 import { useCityContext } from '../../commons/context/PlacesProvider';
@@ -18,3 +19,8 @@ export const CardRecord = ({ firstPlace, postCode }) => {
     </Link>
   )
 }
+
+CardRecord.propTypes = {
+  firstPlace: PropTypes.object.isRequired,
+  postCode: PropTypes.string.isRequired
+};

@@ -1,4 +1,6 @@
 
+import PropTypes from 'prop-types';
+
 import { useChangeText } from '../../commons/hooks/useChangeText';
 import { useInput } from '../../commons/hooks/useInput';
 import './styles.css';
@@ -29,3 +31,7 @@ export const AddPostalCode = ({ isLoading }) => {
         </>
     )
 }
+
+AddPostalCode.propTypes = {
+    isLoading: PropTypes.bool
+};

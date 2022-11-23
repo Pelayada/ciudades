@@ -5,7 +5,7 @@ export const labelsChart = ( newInfo ) => {
 
     const time = dataMeteo.map((meteo, j) => {
         if(meteo && dataTime[j]){
-            return `${dataTime[j]} (ºC ${parseInt(meteo)} )`
+            return `${dataTime[j]} (${parseInt(meteo)} ºC)`
         }
         return '';
     })

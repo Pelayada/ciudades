@@ -1,3 +1,6 @@
+
+import PropTypes from 'prop-types';
+
 import { Bar } from "react-chartjs-2";
 import zoomPlugin from 'chartjs-plugin-zoom';
 import {
@@ -38,3 +41,7 @@ export const GraphicCard = ({ info }) => {
         </div>
     )
 }
+
+GraphicCard.propTypes = {
+    info: PropTypes.object.isRequired
+};

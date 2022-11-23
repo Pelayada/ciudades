@@ -1,4 +1,6 @@
 
+import PropTypes from 'prop-types';
+
 import { useChangeText } from '../../commons/hooks/useChangeText';
 import { TextCard } from '../TextCard';
 import './styles.css';
@@ -23,3 +25,7 @@ export const PoliticalInformation = ({ info }) => {
         </>
     )
 }
+
+PoliticalInformation.propTypes = {
+    info: PropTypes.object.isRequired
+};

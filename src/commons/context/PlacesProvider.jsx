@@ -1,5 +1,6 @@
 
-import { useState , useMemo, useContext} from "react"
+import { useState, useEffect, useMemo, useContext} from "react"
+import { useFetchInfo } from "../hooks/useFetchInfo";
 import { PlacesContext } from "./PlacesContext"
 
 export const PlacesProvider = ({ children }) => {
@@ -8,6 +9,25 @@ export const PlacesProvider = ({ children }) => {
     const [placeRecord, setPlaceRecord] = useState('');
     const [language, setLanguage] = useState('ES');
 
+    const { 
+        getInfo: getInfoFetch, 
+        info: infoFetch, 
+        isLoading, 
+        placeInfo 
+    } = useFetchInfo();
+
+    useEffect(() => {
+        getInfoFetch( placeRecord );
+    }, [placeRecord])
+
+    useEffect(() => {
+        if ( infoFetch ) {
+            const findPlace = placesArray.find((place) => place['post code'] === infoFetch['post code'])
+            if (findPlace) return;
+            setPlacesArray([infoFetch, ...placesArray]);
+        }
+    }, [infoFetch])
+
     const value = useMemo(() => { 
         return { 
             placesArray, 
@@ -15,9 +35,11 @@ export const PlacesProvider = ({ children }) => {
             placeRecord, 
             setPlaceRecord,
             language,
-            setLanguage  
+            setLanguage,
+            isLoading,
+            placeInfo  
         }; 
-    }, [placesArray, placeRecord, language]);
+    }, [placesArray, placeRecord, language, isLoading, placeInfo]);
    
     return (
         <PlacesContext.Provider value={ value }>
