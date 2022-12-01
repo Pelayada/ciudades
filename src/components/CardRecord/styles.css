@@ -10,7 +10,7 @@
 .cardRecord {
     display: flex;
     margin: 1rem auto;
-    border: 1px solid black;
+    border: 2px solid black;
     z-index: 9999;
 }
 
@@ -20,7 +20,8 @@
     color: white;
 }
 .cardRecord p {
-    margin: 1rem;
+    padding: 1rem;
     width: 100%;
     color: black;
+    margin: 0;
 }

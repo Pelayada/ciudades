@@ -5,28 +5,35 @@ import { PlacesContext } from "./PlacesContext"
 
 export const PlacesProvider = ({ children }) => {
 
-    const [placesArray, setPlacesArray] = useState([]);
-    const [placeRecord, setPlaceRecord] = useState('');
-    const [language, setLanguage] = useState('ES');
+    const [ placesArray, setPlacesArray ] = useState([]);
+    const [ placeRecord, setPlaceRecord ] = useState('');
+    const [ language, setLanguage ] = useState('ES');
+    const [ error, setError ] = useState('');
 
     const { 
         getInfo: getInfoFetch, 
         info: infoFetch, 
         isLoading, 
-        placeInfo 
+        placeInfo,
+        errorFetch 
     } = useFetchInfo();
 
     useEffect(() => {
         getInfoFetch( placeRecord );
     }, [placeRecord])
 
+
+    console.log('infoFetch', infoFetch)
+
     useEffect(() => {
         if ( infoFetch ) {
-            const findPlace = placesArray.find((place) => place['post code'] === infoFetch['post code'])
+            const findPlace = placesArray.find(({ data }) => data['post code'] === infoFetch.data['post code'])
             if (findPlace) return;
             setPlacesArray([infoFetch, ...placesArray]);
         }
     }, [infoFetch])
+
+    console.log('placesArray', placesArray)
 
     const value = useMemo(() => { 
         return { 
@@ -37,9 +44,12 @@ export const PlacesProvider = ({ children }) => {
             language,
             setLanguage,
             isLoading,
-            placeInfo  
+            placeInfo,
+            error, 
+            setError,
+            errorFetch  
         }; 
-    }, [placesArray, placeRecord, language, isLoading, placeInfo]);
+    }, [placesArray, placeRecord, language, isLoading, placeInfo, error, errorFetch]);
    
     return (
         <PlacesContext.Provider value={ value }>
@@ -51,7 +61,7 @@ export const PlacesProvider = ({ children }) => {
 export const useCityContext = () => { 
     const contexto = useContext(PlacesContext); 
     if (!contexto) { 
-        throw new Error('useMode debe estar dentro del proveedor ModeContext'); 
+        throw new Error('useCityContext debe estar dentro del proveedor PlacesContext'); 
     } 
     return contexto; 
 }

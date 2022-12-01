@@ -8,8 +8,9 @@ export const RecordPage = () => {
   return (
     <div className='cardsRecords'>
       { placesArray?.map((place) => {
-        const firstPlace = place.places[0];
-        const postCode = place['post code'];
+        console.log('place', place)
+        const firstPlace = place.data.places[0];
+        const postCode = place.data['post code'];
         return(
           <CardRecord 
             key={ postCode } 

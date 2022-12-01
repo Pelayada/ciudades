@@ -1,12 +1,16 @@
 
 import { useState } from 'react';
 import { useCityContext } from '../context/PlacesProvider';
+import { useChangeText } from '../hooks/useChangeText';
 
 export const useInput = () => {
-    const { setPlaceRecord } = useCityContext();
+    const { setPlaceRecord, setError } = useCityContext();
     const [ inputValue, setInputValue ] = useState('');
-    const [ error, setError ] = useState('');
-    
+
+    const errorEmpty = useChangeText("errorEmpty");
+    const errorString = useChangeText("errorString");
+    const errorDigits = useChangeText("errorDigits");
+
     const onInputChange = ({ target }) => {
         setInputValue( target.value );
     }
@@ -16,15 +20,15 @@ export const useInput = () => {
         const code = parseInt(inputValue) || inputValue;
 
         if (inputValue.length < 1) {
-            setError('Se debe introducir un código postal.');
+            setError( errorEmpty );
             setInputValue('');
             return;
         } else if (typeof code === 'string') {
-            setError('El código postal debe ser númerico.');
+            setError( errorString );
             setInputValue('');
             return;
         } else if (inputValue.toString().length !== 5) {
-            setError('Debe contener 5 cifras.');
+            setError( errorDigits );
             setInputValue('');
             return;
         }
@@ -36,7 +40,6 @@ export const useInput = () => {
     return {
         onInputChange,
         onSubmit,
-        error,
         inputValue
     }
 }

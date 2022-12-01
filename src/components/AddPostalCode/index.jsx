@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import { useChangeText } from '../../commons/hooks/useChangeText';
 import { useInput } from '../../commons/hooks/useInput';
+import { Error } from '../Error';
 import './styles.css';
 
 export const AddPostalCode = ({ isLoading }) => {
@@ -10,7 +11,6 @@ export const AddPostalCode = ({ isLoading }) => {
     const {
         onInputChange,
         onSubmit,
-        error,
         inputValue
     } = useInput()
 
@@ -27,7 +27,7 @@ export const AddPostalCode = ({ isLoading }) => {
                 />
                 { !isLoading && <input type="submit" value={ valueButton } className='inputSubmit' /> }
             </form>
-            <span className='errorInput' id='errorInput'>{error}</span>
+            <Error />
         </>
     )
 }

@@ -67,6 +67,31 @@
    "loading" : {
       "ES" : "Cargando...",
       "EN" : "Loading..."
+   },
+
+   "errorEmpty" : {
+      "ES" : "Se debe introducir un código postal.",
+      "EN" : "You must enter a postal code."
+   },
+
+   "errorString" : {
+      "ES" : "El código postal debe ser númerico.",
+      "EN" : "Postal code must be numeric."
+   },
+
+   "errorDigits" : {
+      "ES" : "Debe contener 5 cifras.",
+      "EN" : "It must contain 5 digits."
+   },
+
+   "errorFetch" : {
+      "ES" : "Hubo un error al obtener la información.",
+      "EN" : "There was an error getting the information."
+   },
+
+   "errorFetchMeteo" : {
+      "ES" : "Hubo un error al obtener la información climática.",
+      "EN" : "There was an error getting the weather information."
    }
 }
 
