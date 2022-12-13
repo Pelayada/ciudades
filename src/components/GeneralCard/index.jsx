@@ -27,5 +27,5 @@ export const GeneralCard = ({ title, children }) => {
 
 GeneralCard.propTypes = {
     title: PropTypes.string,
-    children: PropTypes.element.isRequired
+    children: PropTypes.element
 };

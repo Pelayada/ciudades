@@ -22,9 +22,6 @@ export const PlacesProvider = ({ children }) => {
         getInfoFetch( placeRecord );
     }, [placeRecord])
 
-
-    console.log('infoFetch', infoFetch)
-
     useEffect(() => {
         if ( infoFetch ) {
             const findPlace = placesArray.find(({ data }) => data['post code'] === infoFetch.data['post code'])
@@ -32,8 +29,6 @@ export const PlacesProvider = ({ children }) => {
             setPlacesArray([infoFetch, ...placesArray]);
         }
     }, [infoFetch])
-
-    console.log('placesArray', placesArray)
 
     const value = useMemo(() => { 
         return { 

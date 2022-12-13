@@ -16,7 +16,7 @@ export const ChangeLanguage = () => {
     return (
         <ul className='buttonLanguage'>
             <button onClick={changeLanguage}>ES</button>
-            <button onClick={changeLanguage}>EN</button>
+            <button onClick={changeLanguage} data-testid="toggle">EN</button>
         </ul>
     )
 }

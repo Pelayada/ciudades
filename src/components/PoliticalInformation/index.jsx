@@ -7,27 +7,25 @@ import './styles.css';
 
 export const PoliticalInformation = ({ info }) => {
 
-    const { state } = info || {};
-    let name;
-    let abbreviation = 'O';
-
-    if ( info ) {
-        name = info['place name'];
-        abbreviation = info['state abbreviation'];
-    }
+    
+    const { state } = info;
+    const name = info['place name'];
+    const abbreviation = info['state abbreviation'] || 'SF';
 
     const city = useChangeText('city');
     const stateWord = useChangeText('state');
     const flag = useChangeText('flag');
 
     return (
-        <div className='political'>
-            <img 
-                src={require(`../../assets/images/flags/${abbreviation}.gif`)} 
-                alt={ flag } 
-                className='flagImage' />
-            <TextCard firstLine={[`${city}: `, name]} secondLine={[`${stateWord}: `, state]} />
-        </div>
+        info && (
+            <>
+                <img 
+                    src={require(`../../assets/images/flags/${abbreviation}.gif`)} 
+                    alt={ flag } 
+                    className='flagImage' />
+                <TextCard firstLine={[`${city}: `, name]} secondLine={[`${stateWord}: `, state]} />
+            </>
+        )
     )
 }
 

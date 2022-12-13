@@ -7,7 +7,6 @@ import logo from '../../assets/images/miscalenea/logo.png';
 import './styles.css';
 
 export const Navbar = () => {
-
     return (
         <nav>
             <Link to="/">
@@ -29,7 +28,6 @@ export const Navbar = () => {
                 </ul>
                 <ChangeLanguage />
             </div>
-            
         </nav>
     )
 }

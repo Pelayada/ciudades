@@ -22,14 +22,31 @@ describe( 'Test component Error', () => {
     container = null;
   });
 
-  it('can render Error', () => {
+  it('can render Error with error', () => {
     useCityContext.mockImplementation(() => {
-      return 'Error al cargar.'
+      return {
+        error: 'Error al cargar.',
+      }
     })
+    // eslint-disable-next-line testing-library/no-unnecessary-act
     act(() => {
       ReactDOM.createRoot(container).render(<Error />);
     });
     const errorInput = container.querySelector('.errorInput');
-    expect(errorInput).not.toBeNull();
+    expect(errorInput.textContent).toBe('Error al cargar.');
+  });
+
+  it('can render Error with error with errorFetch', () => {
+    useCityContext.mockImplementation(() => {
+      return {
+        errorFetch: 'Error al cargar.'
+      }
+    })
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    act(() => {
+      ReactDOM.createRoot(container).render(<Error />);
+    });
+    const errorInput = container.querySelector('.errorInput');
+    expect(errorInput.textContent).toBe('Error al cargar.');
   });
 })

@@ -31,5 +31,5 @@ export const GraphicCardManual = ({ info }) => {
 }
 
 GraphicCardManual.propTypes = {
-    info: PropTypes.object.isRequired
+    info: PropTypes.object
 };

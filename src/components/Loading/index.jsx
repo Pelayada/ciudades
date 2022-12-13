@@ -10,6 +10,7 @@ export const Loading = () => {
   return (
     <div className='loading' >
         <img 
+            data-testid="loading"
             src={require('../../assets/images/miscalenea/loading.gif')} 
             className='imageLoading' 
             alt={ loading } />

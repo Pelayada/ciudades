@@ -26,10 +26,11 @@ describe( 'Test component Loading', () => {
         useChangeText.mockImplementation(() => {
             return 'Cargando...'
         })
+        // eslint-disable-next-line testing-library/no-unnecessary-act
         act(() => {
             ReactDOM.createRoot(container).render(<Loading />);
         });
-        const loading = container.querySelector('.loading');
-        expect(loading).not.toBeNull();
+        const loading = container.querySelector("img");
+        expect(loading.getAttribute("src")).toEqual('loading.gif');
     });
 })

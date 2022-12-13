@@ -11,7 +11,6 @@ jest.mock('../../commons/hooks/useChangeText', () => ({
 
 describe( 'Test component PoliticalInformation', () => {
     let container;
-    let props;
 
     beforeEach(() => {
       container = document.createElement('div');
@@ -23,18 +22,29 @@ describe( 'Test component PoliticalInformation', () => {
       container = null;
     });
     
-    it('can render PoliticalInformation', () => {
-        props = {
+    it('can render img PoliticalInformation', () => {
+        const props = {
             "place name": "La Arena (Soto Del Barco)",
-            longitude: "-6.0667",
             state: "Asturias",
-            "state abbreviation": "O",
-            "latitude": "43.5333"
+            "state abbreviation": "M",
         }
+       
+        // eslint-disable-next-line testing-library/no-unnecessary-act
         act(() => {
-            ReactDOM.createRoot(container).render(<PoliticalInformation props={props} />);
+            ReactDOM.createRoot(container).render(
+            <PoliticalInformation info={props} />);
         });
-        const political = container.querySelector('.political');
-        expect(political).not.toBeNull();
+        const political = container.querySelector('img');
+        expect(political.getAttribute("src")).toEqual('M.gif');
+    });
+
+    it('not can render img PoliticalInformation', () => {
+        const props = {}
+        // eslint-disable-next-line testing-library/no-unnecessary-act
+        act(() => {
+            ReactDOM.createRoot(container).render(<PoliticalInformation info={props} />);
+        });
+        const political = container.querySelector('img');
+        expect(political.innerHTML).toEqual('');
     });
 })
