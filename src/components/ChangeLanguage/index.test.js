@@ -22,20 +22,6 @@ describe( 'Test component ChangeLanguage', () => {
     container = null;
   });
 
-  it('can render ChangeLanguage button', () => {
-    useCityContext.mockImplementation(() => {
-      return {
-        setLanguage: () => {return 'ES'},
-      }
-    })
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    act(() => {
-      ReactDOM.createRoot(container).render(<ChangeLanguage />);
-    });
-    const buttonLanguage = container.querySelector('.buttonLanguage');
-    expect(buttonLanguage.textContent).toBe('ESEN');
-  });
-
   it('can render ChangeLanguage button ES', () => {
     useCityContext.mockImplementation(() => {
       return {
@@ -44,15 +30,20 @@ describe( 'Test component ChangeLanguage', () => {
     })
     // eslint-disable-next-line testing-library/no-unnecessary-act
     act(() => {
-      ReactDOM.createRoot(container).render(<ChangeLanguage />);
+      ReactDOM.createRoot(container).render(<ChangeLanguage />, container);
     });
-    const button = container.querySelector("button");
+
+    const buttonLanguage = container.querySelector(".buttonLanguage");
+    const firstButton = buttonLanguage.querySelectorAll('button')[0];
 
     act(() => {
-      button.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      firstButton.dispatchEvent(
+        new MouseEvent(
+          "click", 
+          { bubbles: true, target: { textContent: 'ES'} }
+      ));
     });
-    expect(useCityContext).toBeCalled();
-
+    expect(useCityContext).toHaveBeenCalledTimes(1);
   });
 
   it('can render ChangeLanguage button EN', () => {
@@ -62,15 +53,20 @@ describe( 'Test component ChangeLanguage', () => {
       }
     })
     // eslint-disable-next-line testing-library/no-unnecessary-act
-   act(() => {
-      ReactDOM.createRoot(container).render(<ChangeLanguage />);
-    });
-    const toggle = container.querySelector("[data-testid=toggle]");
-  
     act(() => {
-      toggle.dispatchEvent(new MouseEvent("click", { bubbles: true }));
+      ReactDOM.createRoot(container).render(<ChangeLanguage />, container);
     });
-  
+
+    const buttonLanguage = container.querySelector(".buttonLanguage");
+    const secondButton = buttonLanguage.querySelectorAll('button')[1];
+
+    act(() => {
+      secondButton.dispatchEvent(
+        new MouseEvent(
+          "click", 
+          { bubbles: true, target: { textContent: 'EN'} }
+      ));
+    });
     expect(useCityContext).toHaveBeenCalledTimes(1);
   });
 })

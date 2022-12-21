@@ -25,7 +25,7 @@ describe( 'Test component GraphicCardManual', () => {
   it('can render GraphicCardManual', () => {
     useFetchMeteo.mockImplementation(() => {
       return {
-        chartTime: ['00:00 (7 ºC)', '01:00 (6 ºC)', '02:00 (6 ºC)', '03:00 (7 ºC)'],
+        chartTime: ['00:00 (7 ºC) ', '01:00 (6 ºC) ', '02:00 (6 ºC) ', '03:00 (7 ºC)'],
         chartMeteo: [11.4, 11.4, 11.2, 11.4,]
       }
     })
@@ -34,7 +34,7 @@ describe( 'Test component GraphicCardManual', () => {
     act(() => {
       ReactDOM.createRoot(container).render(<GraphicCardManual />);
     });
-    const labelTime = container.querySelector('.labelTime div');
-    expect(labelTime.textContent).toBe('00:00 (7 ºC)');
+    const labelTime = container.querySelector('.labelTime');
+    expect(labelTime.textContent).toBe('00:00 (7 ºC) 01:00 (6 ºC) 02:00 (6 ºC) 03:00 (7 ºC)');
   });
 })

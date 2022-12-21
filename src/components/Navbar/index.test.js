@@ -28,7 +28,7 @@ describe( 'Test component Navbar', () => {
     container = null;
   });
 
-  it('can render Navbar with info', () => {
+  it('can render title Navbar', () => {
     useChangeText.mockImplementation(() => {
       return 'Ciudades';
     })
@@ -44,5 +44,20 @@ describe( 'Test component Navbar', () => {
     });
     const titleMenu = container.querySelector('.titleMenu');
     expect(titleMenu.textContent).toBe('Ciudades');
+  });
+
+  it('can render logo Navbar', () => {
+    ChangeLanguage.mockImplementation(() => {
+      <div id='testComponent'></div>
+    })
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    act(() => {
+      ReactDOM.createRoot(container).render(
+        <Router>
+          <Navbar />
+        </Router>);
+    });
+    const img = container.querySelector('img');
+    expect(img.getAttribute("src")).toEqual('logo.png');
   });
 })

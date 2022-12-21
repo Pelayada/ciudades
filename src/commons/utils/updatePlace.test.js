@@ -6,8 +6,15 @@ jest.mock('../../commons/context/PlacesProvider', () => ({
     useCityContext : jest.fn()
 }))
 
+const setPlaceRecord = jest.fn();
+
 describe('Test updatePlace', () => {
     it('return with p', () => {
+        useCityContext.mockImplementation(() => {
+            return {
+                setPlaceRecord: () => { return 'La Arena (Soto Del Barco) (Asturias)' },
+            }
+        })
         const event = {
             target: {
                 innerText: 'La Arena (Soto Del Barco) (Asturias)',
@@ -21,15 +28,8 @@ describe('Test updatePlace', () => {
                 }
             }
         }
-        const func = () => { return ''}
-        const result = updatePlace( event, func )
-
-        useCityContext.mockImplementation(() => {
-            return {
-                setPlaceRecord: () => { return 'La Arena (Soto Del Barco) (Asturias)' },
-            }
-        })
-
+        updatePlace( event, setPlaceRecord )
+        // expect(useCityContext).toHaveBeenCalledTimes(1);
     })
 
     it('return with span', () => {

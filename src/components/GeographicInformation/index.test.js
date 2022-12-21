@@ -36,8 +36,34 @@ describe( 'Test component GeographicInformation', () => {
             ReactDOM.createRoot(container).render(
             <GeographicInformation info={props} />);
         });
-        const political = container.querySelector('a');
-        expect(political.getAttribute("href")).toEqual('https://www.google.com/maps/@43.5333,-6.0667,13z');
+        const geo = container.querySelector('a');
+        expect(geo.getAttribute("href")).toEqual('https://www.google.com/maps/@43.5333,-6.0667,13z');
     });
 
+    it('can render img GeographicInformation', () => {
+      const props = {
+        "place name": "La Arena (Soto Del Barco)",
+        longitude: "-6.0667",
+        state: "Asturias",
+        "state abbreviation": "M",
+        "latitude": "43.5333"
+      }
+     
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      act(() => {
+          ReactDOM.createRoot(container).render(
+          <GeographicInformation info={props} />);
+      });
+      const geo = container.querySelector('img');
+      expect(geo.getAttribute("src")).toEqual('mapa.png');
+    });
+
+    it('not can render PoliticalInformation', () => {
+      const props = undefined;
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      act(() => {
+          ReactDOM.createRoot(container).render(<GeographicInformation info={props} />);
+      });
+      expect(container.innerHTML).toEqual('');
+  });
 })

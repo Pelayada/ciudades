@@ -39,12 +39,23 @@ describe( 'Test component PoliticalInformation', () => {
     });
 
     it('not can render img PoliticalInformation', () => {
-        const props = {}
-        // eslint-disable-next-line testing-library/no-unnecessary-act
+        const props = {
+            "place name": "La Arena (Soto Del Barco)",
+            state: "Asturias",
+        }        // eslint-disable-next-line testing-library/no-unnecessary-act
         act(() => {
             ReactDOM.createRoot(container).render(<PoliticalInformation info={props} />);
         });
         const political = container.querySelector('img');
-        expect(political.innerHTML).toEqual('');
+        expect(political.getAttribute("src")).toEqual('SF.gif');    
+    });
+
+    it('not can render PoliticalInformation', () => {
+        const props = undefined;
+        // eslint-disable-next-line testing-library/no-unnecessary-act
+        act(() => {
+            ReactDOM.createRoot(container).render(<PoliticalInformation info={props} />);
+        });
+        expect(container.innerHTML).toEqual('');
     });
 })

@@ -8,14 +8,17 @@ import './styles.css';
 
 export const GeographicInformation = ({ info }) => {
 
-    const { longitude, latitude } = info;
-    const zoom = 13;
-    const url = `https://www.google.com/maps/@${latitude},${longitude},${zoom}z`;
-
     const latitudeWord = useChangeText('latitude');
     const longitudeWord = useChangeText('longitude');
     const map = useChangeText('map');
 
+    if( !info ) {
+        return <></>
+    }
+
+    const { longitude, latitude } = info;
+    const zoom = 13;
+    const url = `https://www.google.com/maps/@${latitude},${longitude},${zoom}z`;
 
     return (
         <div className='infoGeo'>
